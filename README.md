@@ -5,6 +5,10 @@ This is a CLI for managing a gmod server instance
 This project is continuously developed to fit the needs of [Flauschig e.V.](https://flauschig.net)
 Version v0.1.0 will be working soon. You can find a [feature roadmap](#feature-roadmap) at the end of this README.
 
+## Useful links
+
+- [Documentation](https://kailijan.github.io/GMod-CLI/)
+
 ## Getting Started
 
 ### Tested Operating Systems
