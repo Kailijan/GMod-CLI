@@ -85,8 +85,9 @@ def test_steamcmd():
 	global steamcmd
 	if steamcmd != "" and os.path.isfile(steamcmd):
 		return True
-	path = shutil.which("steamcmd")
-	return path != None
+	else:
+		path = shutil.which("steamcmd")
+		return path != None
 
 def write_install_update_script(dest):
 	"""Write installation procedure to script at '<path_to_toolkit>/scripts/install_update_gmod.txt'"""
