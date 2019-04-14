@@ -101,6 +101,17 @@ def write_install_update_script(dest):
 	f = open(os.path.dirname(os.path.realpath(__file__)) + "/scripts/install_update_gmod.txt", "w")
 	f.write(content)
 
+def check():
+	status = 'SUCCESS'
+	print("Testing SteamCMD...")
+	if test_steamcmd():
+		print("OK")
+	else:
+		status = 'FAILURE'
+		print("FAIL")
+	print("Check finished: " + status)
+
+
 def debug(msg):
 	"""Print msg when in verbose mode"""
 	if verbose == True:
@@ -119,6 +130,7 @@ def list_actions():
 #	print("(3) start	- Starts the server")
 #	print("(4) stop	- Stops the server")
 #	print("(5) remove	- Removes gmod")
+	print("(6) check	- Check all the dependencies")
 
 if __name__ == "__main__":
 	main(sys.argv[1:])
