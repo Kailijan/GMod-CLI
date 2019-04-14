@@ -14,7 +14,8 @@ Version v0.1.0 will be working soon. You can find a [feature roadmap](#feature-r
 ### Tested Operating Systems
 
 The tool is currently tested on the following systems:
-- Debian 4.9.130-2 x86_64
+- Debian 4.9
+- Raspbian 4.14
 
 It may also run on different Linux distributions, but some extra configuration can be necessary.
 
