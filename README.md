@@ -57,16 +57,4 @@ See also the list of [contributors](https://github.com/Kailijan/GMod-CLI/graphs/
 
 This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details
 
-## Acknowledgments
-
-## Feature Roadmap
-
-### For v0.1.0
-- Install and update GMod
-
-### For v0.2.0
-- Start and stop a gameserver with the default gamemode
-
-### For v0.3.0
-- Support for TTT
-- Support for Prop Hunt
+For further information, please consult the [documentation](https://kailijan.github.io/GMod-CLI/).
