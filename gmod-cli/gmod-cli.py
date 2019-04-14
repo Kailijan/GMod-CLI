@@ -27,7 +27,7 @@ def main(argv):
 			verbose = True
 		elif opt in ("-h", "--help"):
 			usage()
-			sys.exit(2)
+			sys.exit(0)
 		elif opt in ("-a", "--action"):
 			action = arg
 		elif opt == "--steamcmd":
@@ -56,7 +56,7 @@ def install():
 	if not test_steamcmd():
 		print("Could not find SteamCMD. Please install it by following the instructions on https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD")
 		print("Should this error persist after installing SteamCMD, please provide the destination of the executable by appending --steamcmd <path>")
-		sys.exit(2)
+		sys.exit(1)
 	dest = input("Install directory (" + os.getcwd() + "): ")
 	if dest == "":
 		dest = os.getcwd()
