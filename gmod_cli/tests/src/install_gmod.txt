@@ -1,0 +1,8 @@
+// install_gmod.txt
+//
+@ShutdownOnFailedCommand 1
+@NoPromptForPassword 1
+login anonymous
+force_install_dir "."
+app_update 4020 validate
+quit

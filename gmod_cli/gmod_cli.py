@@ -1,7 +1,7 @@
 #!/usr/bin/python3.5
 
 """ README
-This is a CLI for managing a gmod server instance
+A CLI for managing a gmod server instance
 Author: Kai Frankenhaueser
 E-Mail: kailijan@flauschig.net
 """
@@ -12,8 +12,6 @@ verbose = False
 steamcmd = ""
 
 def main(argv):
-	write_install_script("Test");
-	return
 	global verbose, steamcmd
 	action = ""
 	try:
@@ -62,9 +60,9 @@ def install():
 		dest = os.getcwd()
 	dest = os.path.expanduser(dest)
 	if not os.path.isdir(dest):
-		create = input("Directory does not exist. Create it? (y/n): ")
-		create = validate_input(create, ["y", "n"])
-		if create == "y":
+		create = input("Directory does not exist. Create it? (yes/no): ")
+		create = validate_input(create, ["y", "n", "yes", "no"])
+		if create == "y" or create == "yes":
 			try:
 				os.makedirs(dest)
 			except OSError as err:
@@ -80,6 +78,9 @@ def validate_input(inpt, options):
 		inpt = input("Please enter a valid input: ")
 	return inpt
 
+def test_prerequisites():
+	return test_steamcmd()
+
 def test_steamcmd():
 	"""Return True when SteamCMD is installed, otherwise return False"""
 	global steamcmd
@@ -89,18 +90,20 @@ def test_steamcmd():
 		path = shutil.which("steamcmd")
 		return path != None
 
-def write_install_update_script(dest):
-	"""Write installation procedure to script at '<path_to_toolkit>/scripts/install_update_gmod.txt'"""
+def write_install_update_script(dest, rel_path="scripts/install_update_gmod.txt"):
+	"""Write installation procedure to script at '<current work directory>/scripts/<script name>.txt'"""
+	rel_path = os.path.normpath(rel_path)
 	content =	("// install_gmod.txt\n"
 			"//\n"
-			"@ShutdownOnFailedCommand 1 //set to 0 if updating multiple servers at once\n"
+			"@ShutdownOnFailedCommand 1\n"
 			"@NoPromptForPassword 1\n"
 			"login anonymous\n"
 			"force_install_dir \"" + str(dest) + "\"\n"
 			"app_update 4020 validate\n"
 			"quit\n")
-	f = open(os.path.dirname(os.path.realpath(__file__)) + "/scripts/install_update_gmod.txt", "w")
+	f = open(os.path.join(os.getcwd(), rel_path), "w")
 	f.write(content)
+	f.close()
 
 def check():
 	status = 'SUCCESS'
