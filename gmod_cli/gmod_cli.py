@@ -1,5 +1,3 @@
-#!/usr/bin/python3.5
-
 """ README
 A CLI for managing a gmod server instance
 Author: Kai Frankenhaueser
